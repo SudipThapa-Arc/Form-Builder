@@ -7,7 +7,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
-import { Trash2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage } from '@/components/ui/form';
@@ -40,7 +39,7 @@ export const FormPreview = React.memo(({
     console.log(data);
   };
 
-  const renderComponent = (component: FormComponent, field: unknown) => {
+  const renderComponent = (component: FormComponent, field: any) => {
     switch (component.type) {
       case 'text':
       case 'email':
@@ -49,6 +48,7 @@ export const FormPreview = React.memo(({
       case 'date':
         return (
           <Input
+            {...field}
             type={component.type}
             placeholder={component.placeholder}
             required={component.required}
@@ -103,7 +103,7 @@ export const FormPreview = React.memo(({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid gap-6">
-          {components.map((component, index) => (
+          {components.map((component) => (
             <FormField
               key={component.id}
               name={component.id}
