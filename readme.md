@@ -2,7 +2,6 @@
 
 A modern, drag-and-drop form builder built with React and TypeScript. Create, customize, and validate forms with ease.
 
-![Form Builder Demo](https://github.com/SudipThapa-Arc/Form-Builder/raw/main/public/demo.gif)
 
 ## ✨ Features
 
